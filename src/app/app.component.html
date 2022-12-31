@@ -4,3 +4,39 @@
 
 <p>{{message}}</p>
 <button>A button that buttons, buttonly</button>
+
+<div class="card bg-light p-4">
+  <form [formGroup]="userForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" formControlName="name">
+    </div>
+    <div class="input-group">
+      <input
+        class="form-control"
+        placeholder="yyyy-mm-dd"
+        name="dp"
+        formControlName="birth"
+        ngbDatepicker
+        #d="ngbDatepicker"
+      />
+      <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">x</button>
+    </div>
+    <div class="form-group">
+      <label for="weight">Weight</label>
+      <input type="number" class="form-control" id="weight" aria-describedby="weightHelp" placeholder="Enter weight" formControlName="weight">
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="flexCheckChecked" formControlName="human">
+      <label class="form-check-label" for="flexCheckChecked">
+        Are they human?
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="numberOfTeeth">Name</label>
+      <input type="number" class="form-control" id="numberOfTeeth" aria-describedby="numberOfTeethHelp" placeholder="Enter number of teeth" formControlName="numberOfTeeth">
+    </div>
+    <button [disabled]="userForm.invalid" class="btn btn-danger" (click)="onSubmit()">Submit</button>
+  </form>
+</div>
+
