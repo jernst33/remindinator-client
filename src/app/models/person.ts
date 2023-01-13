@@ -1,7 +1,7 @@
 export interface Person {
   name: string;
   birth: Date;
-  weight: number;
+  email: string;
+  password: string;
   human: boolean;
-  numberOfTeeth: number;
 }

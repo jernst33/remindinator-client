@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
     this.userForm = this.fb.group({
       name: [null, Validators.required],
       birth: [null, Validators.required],
-      weight: [null, Validators.required],
+      email: [null, Validators.required],
+      password:[null, Validators.required],
       human: [null, Validators.required],
-      numberOfTeeth: [null, Validators.required],
     });
   }
 
@@ -43,14 +43,15 @@ export class AppComponent implements OnInit {
 
   onSubmit() {
     console.log(this.userForm);
-    this.http.post("http://localhost:8080/persons", {
+    this.http.post("http://localhost:8080/api/public", {
       name: this.userForm.get('name')?.value,
       birth: new Date(""),
-      weight: this.userForm.get('weight')?.value,
+      email: this.userForm.get('email')?.value,
+      password: this.userForm.get('password')?.value,
       human: this.userForm.get('human')?.value,
-      numberOfTeeth: this.userForm.get('numberOfTeeth')?.value,
-    }).subscribe(res => {
-      console.log(res)
+    }).subscribe(result => {
+      console.log(result)
     })
+
   }
 }
