@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Form, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
+import {AuthService} from "./auth.service";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   userForm: FormGroup = new FormGroup<any>({});
 
   constructor(private http: HttpClient,
+              private auth: AuthService,
               private fb: FormBuilder) {
   }
 

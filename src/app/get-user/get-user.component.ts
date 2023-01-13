@@ -24,9 +24,6 @@ export class GetUserComponent implements OnInit {
       })
     };
 
-    this.http.get<any>("http://localhost:8080/api/public/who-am-i", httpOptions).subscribe(res => {
-      this.user = res;
-      console.log(res);
-    })
+
   }
 }
