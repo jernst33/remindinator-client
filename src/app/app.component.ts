@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Form, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
@@ -43,13 +43,21 @@ export class AppComponent implements OnInit {
 
   onSubmit() {
     console.log(this.userForm);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Basic ' + btoa(`${this.userForm.get('name')?.value}:${this.userForm.get('password')?.value}`)
+      })
+    };
+
     this.http.post("http://localhost:8080/api/public", {
       name: this.userForm.get('name')?.value,
       birth: new Date(""),
       email: this.userForm.get('email')?.value,
       password: this.userForm.get('password')?.value,
       human: this.userForm.get('human')?.value,
-    }).subscribe(result => {
+    }, httpOptions).subscribe(result => {
       console.log(result)
     })
 

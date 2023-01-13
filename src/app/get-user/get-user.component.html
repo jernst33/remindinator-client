@@ -1,0 +1,11 @@
+<h1>GET USER</h1>
+
+<button class="btn btn-secondary" (click)="getUser()">Get User</button>
+
+
+<ng-container *ngIf="!!user">
+  {{user | json}}
+</ng-container>
+<ng-container *ngIf="!user">
+  <h1>Whoops, no user yet!</h1>
+</ng-container>

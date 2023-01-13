@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { GetUserComponent } from './get-user/get-user.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GetUserComponent
   ],
   imports: [
     BrowserModule,
