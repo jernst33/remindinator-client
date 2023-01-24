@@ -16,8 +16,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  public signIn() {
-
+  public signIn(user: User) {
+    this.user$.next(user);
   }
 
   public signOut() {
